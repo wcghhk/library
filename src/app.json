@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/user/main",
+    "pages/book/main",
+    "pages/comments/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#e54",
+    "navigationBarTitleText": "蜗牛图书",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "backgroundColor": "#fafafa",
+    "selectedColor": "#e54",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/book/main",
+        "iconPath": "static/img/book.png",
+        "selectedIconPath": "static/img/book-active.png"
+      }, {
+        "text": "评论",
+        "pagePath": "pages/comments/main",
+        "iconPath": "static/img/todo.png",
+        "selectedIconPath": "static/img/todo-active.png"
+      }, {
+        "text": "个人",
+        "pagePath": "pages/user/main",
+        "iconPath": "static/img/me.png",
+        "selectedIconPath": "static/img/me-active.png"
+      }
+    ]
+  }
+}
