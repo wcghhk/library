@@ -9,6 +9,7 @@
       <button @click="scanBook" class="btn">添加图书</button>
     </div>
     <div class="login" v-else>
+      <img src="/static/img/me.png" alt="">
       <button class="btn" open-type="getUserInfo" lang="zh_CN" @getuserinfo="doLogin">登录</button>
     </div>
   </div>
@@ -17,7 +18,7 @@
 <script>
 import qcloud from 'wafer2-client-sdk'
 import config from '@/config'
-import { showSuccess } from '@/util'
+import { showSuccess, post, showModal } from '@/util'
 import YearProgress from '@/components/yearProgress'
 export default {
   components: { YearProgress },
@@ -61,10 +62,22 @@ export default {
     scanBook () {
       wx.scanCode({
         onlyFromCamera: false,
-        success (res) {
-          console.log(res)
+        success: res => {
+          res.result && this.addBook(res.result)
         }
       })
+    },
+    async addBook (isbn) {
+      const res = await post('/weapp/addbook', {
+        isbn,
+        openid: this.userinfo.openId
+      })
+      if (res.code === -1) {
+        showModal('添加失败', `${res.data.msg}`)
+      } else if (res.data.title) {
+        showModal('添加成功', `${res.data.title}添加成功`)
+        // showSuccess(`${res.data.title}添加成功`)
+      }
     }
   },
   mounted () {
@@ -88,9 +101,10 @@ export default {
   height 100%
   .wrapper
     padding .4rem
+    padding-bottom 2rem
     .userinfo
-      padding-bottom 2rem
       text-align center
+      margin-bottom .4rem
       .avatar
         width 2rem
         height 2rem
@@ -101,4 +115,9 @@ export default {
         margin-top .2rem
   .login
     padding 0 .4rem
+    text-align center
+    >img
+      width 2rem
+      height 2rem
+      margin-bottom .6rem
 </style>

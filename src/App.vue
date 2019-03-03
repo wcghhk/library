@@ -4,6 +4,8 @@ export default {
 </script>
 
 <style lang="stylus">
+.basic-color
+  color: #e54
 .btn
   color #ffffff
   background #ee5544

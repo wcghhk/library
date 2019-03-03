@@ -1,12 +1,14 @@
 {
   "pages": [
-    "pages/user/main",
     "pages/book/main",
+    "pages/user/main",
+    "pages/detail/main",
     "pages/comments/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#e54",
+    "enablePullDownRefresh": true,
     "navigationBarTitleText": "蜗牛图书",
     "navigationBarTextStyle": "white"
   },
