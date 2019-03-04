@@ -4,8 +4,8 @@
       :indicator-dots="true"
       indicator-color="#e54"
       :autoplay="true"
-      :interval="6000"
-      :duration="1000"
+      :interval="5000"
+      :duration="500"
       :circular="true"
     >
       <div v-for="(item, index) in imgUrl" :key="index">
