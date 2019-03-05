@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="detail">
-      <div class="publisher left">c</div>
+      <div class="publisher left">{{info.publisher}}</div>
       <div class="price right">{{info.price}}</div>
     </div>
     <div class="tags">

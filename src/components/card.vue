@@ -5,18 +5,18 @@
         <img :src="book.image" alt="" class="image" mode="aspectFit">
       </div>
       <div class="detail">
-        <div class="row basic-color">
-          <div class="left title">{{book.title}}</div>
+        <div class="row basic-color title">
+          <div class="left">{{book.title}}</div>
           <div class="right">
             {{book.rate}}
             <rate :value="book.rate"></rate>
           </div>
         </div>
-        <div class="row">
+        <div class="row author">
           <div class="left">{{book.author}}</div>
-          <div class="right">{{book.rate}}</div>
+          <div class="right basic-color">访问量: {{book.count}}</div>
         </div>
-        <div class="row">
+        <div class="row publisher">
           <div class="left">{{book.publisher}}</div>
           <div class="right">{{book.user_info.nickName}}</div>
         </div>
@@ -51,7 +51,6 @@ export default {
 <style lang="stylus" scoped>
 .card
   padding .2rem
-  margin-bottom .2rem
   overflow hidden
   font-size 14px
   .thumb
@@ -70,8 +69,14 @@ export default {
       overflow hidden
       display flex
       justify-content space-between
-      .title
+    .title
+      .left
         flex 1
         overflow hidden
         white-space wrap
+    .author
+      .left
+        flex 1
+        overflow hidden
+        maring-right 10px
 </style>

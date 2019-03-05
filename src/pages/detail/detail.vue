@@ -16,6 +16,7 @@
       </div>
       <button class="btn" @click="addComment">添加评论</button>
     </div>
+    <iframe src="https://www.baidu.com" frameborder="0"></iframe>
     <div class="share">
       <button class="btn" open-type="share">分享给好友</button>
     </div>
@@ -64,6 +65,8 @@ export default {
       try {
         await post('/weapp/addcomment', data)
         this.comment = ''
+        this.getDetail()
+        this.getComments()
       } catch (e) {
         showModal('评论失败', e.msg || '')
       }
@@ -137,7 +140,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .add-comment
   margin-top 10px
   padding 0 10px

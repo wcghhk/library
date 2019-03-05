@@ -56,6 +56,8 @@ export default {
   .comment
     padding 10px
     border-bottom 1px solid #eee
+    &:last-child
+      border none
     .user
       display flex
       justify-content space-between
