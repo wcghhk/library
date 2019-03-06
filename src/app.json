@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/comments/main",
     "pages/book/main",
+    "pages/comments/main",
     "pages/user/main",
     "pages/detail/main"
   ],

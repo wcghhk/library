@@ -27,20 +27,20 @@ export default {
         this.more = true
       }
       wx.showNavigationBarLoading()
-      const books = await get('/weapp/booklist', {page: this.page})
+      const res = await get('/weapp/booklist', {page: this.page})
       if (init) {
-        this.bookList = books.data.bookList
+        this.bookList = res.data.bookList
         wx.stopPullDownRefresh()
       } else {
-        this.bookList = this.bookList.concat(books.data.bookList)
+        this.bookList = this.bookList.concat(res.data.bookList)
       }
-      this.more = !(books.data.bookList.length < 10)
+      this.more = !(res.data.bookList.length < 10)
       wx.hideNavigationBarLoading()
     },
     async getHot () {
       const hots = await get('/weapp/hot')
       this.hots = hots.data.hot
-      console.log(this.hots)
+      // console.log(this.hots)
     }
   },
   mounted () {

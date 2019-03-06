@@ -2,8 +2,8 @@ const {mysql} = require('../qcloud')
 module.exports = async ctx => {
     const {id} = ctx.request.query
     const detail = await mysql('book')
-                    .select('book.*', 'csessioninfo.user_info')
-                    .join('csessioninfo', 'book.openid', 'csessioninfo.open_id')
+                    .select('book.*', 'cSessionInfo.user_info')
+                    .join('cSessionInfo', 'book.openid', 'cSessionInfo.open_id')
                     .where('id', id)
                     .first()
     const info = JSON.parse(detail.user_info)
